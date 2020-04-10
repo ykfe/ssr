@@ -1,6 +1,6 @@
 {
   "name": "ssr-core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "core for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -32,7 +32,7 @@
     "@types/mocha": "^7.0.2",
     "@types/webpack": "^4.41.8",
     "@types/webpack-dev-server": "^3.10.1",
-    "ssr-types": "^0.1.1"
+    "ssr-types": "^0.1.2"
   },
   "dependencies": {
     "@midwayjs/serverless-invoke": "^0.2.67",
@@ -41,7 +41,7 @@
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "ora": "^4.0.3",
-    "ssr-webpack": "^0.1.1",
+    "ssr-webpack": "^0.1.2",
     "webpack": "^4.42.1",
     "webpack-dev-server": "^3.10.3"
   }
