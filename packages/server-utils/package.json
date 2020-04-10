@@ -33,8 +33,8 @@
     "ssr-types": "^0.1.3"
   },
   "dependencies": {
+    "shelljs": "^0.8.3",
     "js-yaml": "^3.13.1",
-    "path-to-regexp": "^1.7.0",
-    "shelljs": "^0.8.3"
+    "path-to-regexp": "^1.7.0"
   }
 }
