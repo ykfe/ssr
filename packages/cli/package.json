@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "cli for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/ykfe/ssr#readme",
   "dependencies": {
-    "ssr-core": "^0.1.3",
-    "ssr-server-utils": "^0.1.3",
+    "ssr-core": "^0.1.6",
+    "ssr-server-utils": "^0.1.6",
     "yargs": "^13.2.4"
   },
   "devDependencies": {
