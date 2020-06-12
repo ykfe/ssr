@@ -30,9 +30,8 @@ functions:
     handler: render.handler
     events:
       - http:
-          path: /index/*
+          path: /*
           method: get
-
 
 aggregation: # 聚合成一个函数发布
   ssr:
