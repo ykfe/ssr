@@ -5,6 +5,7 @@
   "dependencies": {
     "@midwayjs/faas": "*",
     "@midwayjs/faas-middleware-static-file": "*",
+    "@midwayjs/faas-dev-pack": "*",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

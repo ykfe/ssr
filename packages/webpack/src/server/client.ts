@@ -6,7 +6,6 @@ import { webpackPromisify } from '../utils/promisify'
 const WebpackDevServer = require('webpack-dev-server-ssr')
 
 const { port, host, webpackStatsOption } = buildConfig
-
 const startClientServer = (argv: Argv) => {
   return new Promise((resolve, reject) => {
     const clientConfig = getClientWebpack(argv)
