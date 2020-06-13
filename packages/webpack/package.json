@@ -30,7 +30,7 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.5.5",
-    "@midwayjs/faas-dev-pack": "^0.2.84",
+    "@midwayjs/faas-dev-pack": "*",
     "babel-loader": "8.0.4",
     "babel-plugin-import": "^1.13.0",
     "babel-preset-react-app": "^9.0.2",
