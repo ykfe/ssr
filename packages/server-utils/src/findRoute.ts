@@ -1,6 +1,8 @@
 // @ts-nocheck
 import * as pathToRegexp from 'path-to-regexp'
+import { getUserConfig } from './cwd'
 
+const { prefix } = getUserConfig()
 const cache = {}
 const cacheLimit = 10000
 let cacheCount = 0
@@ -64,7 +66,10 @@ function matchPath (pathname, options = {}) {
 
 function findRoute<T extends {path: string}> (Routes: T[], path: string): T {
   // 根据请求的path来匹配到对应的Component
-  const route = Routes.find(route => matchPath(path, route) && matchPath(path, route).isExact)
+  const route = Routes.find(route => {
+    const path = prefix ? `/${prefix}${path}` : path
+    return matchPath(path, route) && matchPath(path, route).isExact
+  })
   return route
 }
 

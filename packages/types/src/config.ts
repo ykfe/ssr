@@ -30,6 +30,7 @@ export interface BuildConfig {
   whiteList: RegExp[]
   cloudIDE?: boolean
   cssModulesWhiteList: RegExp[]
+  prefix?: string
 }
 
 export interface StyleOptions {

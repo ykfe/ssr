@@ -6,6 +6,7 @@ import { wrapComponent, wrapLayout, FeRouteItem, IWindow } from 'ssr-client-util
 declare const window: IWindow
 declare const module: any
 declare const __isBrowser__: boolean
+declare const prefix: string
 
 const feRoutes: FeRouteItem[] = require('ssr-cache/route')
 
@@ -23,7 +24,7 @@ const clientRender = async (): Promise<void> => {
             component.fetch = fetch
             // @ts-ignore
             const WrappedComponent = wrapComponent(component)
-            return <Route exact={true} key={path} path={path} render={() => <Layout key={location.pathname} ><WrappedComponent /></Layout>} />
+            return <Route exact={true} key={prefix ? `/${prefix}${path}` : path} path={path} render={() => <Layout key={location.pathname} ><WrappedComponent /></Layout>} />
           })
         }
       </Switch>

@@ -9,10 +9,10 @@ functions:
         mode: ssr
     events:
       - http:
-          path: /
+          path: /prefix
           method: get
       - http:
-          path: /detail/*
+          path: /prefix/detail/*
           method: get
   api-index:
     handler: api.handler

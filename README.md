@@ -451,6 +451,7 @@ config.js支持以下配置, 默认配置已适用于绝大部分应用, 无特�
   chainClientConfig: (config: Config) => Configuration; // 使用 webpack-chain 来修改服务端 wbepack 构建配置
   whiteList: RegExp[]; // 设置服务端构建配置 externals 的白名单，即需要让 webpack 来处理的模块
   cssModulesWhiteList: RegExp[]; // 设置该选项指定样式文件不用 css-modules 处理，防止样式和 className 不匹配
+  prefix: string; // 为所有的前端路由添加统一的prefix前缀,如 /${prefix}/ /${prefix}/detail/:id
 }
 
 ```

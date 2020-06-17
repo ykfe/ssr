@@ -1,9 +1,10 @@
 
 import * as webpack from 'webpack'
-import { Argv } from 'ssr-server-utils'
+import { Argv, getUserConfig } from 'ssr-server-utils'
 import { getBaseConfig } from './base'
 import { buildConfig } from './config'
 
+const { prefix } = getUserConfig()
 const { publicPath, isDev, chunkName, getOutput, cwd, useHash, loadModule, chainClientConfig } = buildConfig
 const shouldUseSourceMap = isDev || process.env.GENERATE_SOURCEMAP
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
@@ -87,7 +88,7 @@ const getClientWebpack = (argv: Argv) => {
 
   config.plugin('define').use(webpack.DefinePlugin, [{
     __isBrowser__: true,
-    defineStaticPrefix: JSON.stringify(process.env.staticPrefix)
+    prefix: prefix
   }])
 
   config.when(!isDev, config => config.plugin('progress').use(loadModule('webpack/lib/ProgressPlugin')))
