@@ -8,8 +8,8 @@ const { staticPrefix, cssOrder, jsOrder, isDev, devManifest } = buildConfig
 const feRoutes: FeRouteItem[] = require('ssr-cache/route')
 
 const serverRender = async (ctx: IFaaSContext, options: Options): Promise<React.ReactElement> => {
-  const routeItem = findRoute<FeRouteItem<any>>(feRoutes, ctx.req.path)
-  const faasRouteItem = findRoute<FaasRouteItem>(options.faasRoutes, ctx.req.path)
+  const routeItem = findRoute<FeRouteItem<any>>(feRoutes, ctx.req.path, 'fe')
+  const faasRouteItem = findRoute<FaasRouteItem>(options.faasRoutes, ctx.req.path, 'faas')
   const { funcName, mode } = faasRouteItem
 
   const staticList = getStaticList(isDev, devManifest, staticPrefix, funcName, cssOrder, jsOrder)

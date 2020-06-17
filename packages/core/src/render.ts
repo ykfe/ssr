@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server'
 import { getCwd, findRoute, parseYml, parseRoutesFromYml } from 'ssr-server-utils'
-import { IFaaSContext, FaasRouteItem }from 'ssr-types'
+import { IFaaSContext, FaasRouteItem } from 'ssr-types'
 
 const ymlContent = parseYml('./f.yml')
 const faasRoutes = parseRoutesFromYml(ymlContent)

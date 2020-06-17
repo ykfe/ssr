@@ -64,10 +64,13 @@ function matchPath (pathname, options = {}) {
   }, null)
 }
 
-function findRoute<T extends {path: string}> (Routes: T[], path: string): T {
+function findRoute<T extends {path: string}> (Routes: T[], path: string, type?: string): T {
   // 根据请求的path来匹配到对应的Component
   const route = Routes.find(route => {
-    const path = prefix ? `/${prefix}${path}` : path
+    if (type === 'fe') {
+      // 为前端路由匹配添加prefix，服务端路由直接f.yml文件填写无需添加
+      path = prefix ? `/${prefix}${path}` : path
+    }
     return matchPath(path, route) && matchPath(path, route).isExact
   })
   return route
