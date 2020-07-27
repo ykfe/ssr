@@ -1,7 +1,7 @@
 import { FaaSContext } from '@midwayjs/faas'
 import { FaasRouteItem } from './route'
 
-export interface IFaaSContext extends FaaSContext {}
+export interface IFaaSContext extends FaaSContext { }
 
 export interface Options {
   faasRoutes: FaasRouteItem[]

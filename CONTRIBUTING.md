@@ -2,7 +2,7 @@
 
 The markdown file introduce how to contribute for ssr-psec
 
-## Getting Start
+## 本地如何link调试模块
 
 ```bash
 $ npm run bootstrap # you can also run yarn, but npm install is not allowed 

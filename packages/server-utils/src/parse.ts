@@ -10,7 +10,7 @@ const parseYml = (path: string) => {
   const cwd = getCwd()
   const yamlPath = resolve(cwd, path)
   const yamlContent = fs.readFileSync(yamlPath, 'utf-8').toString()
-  const result = Yaml.safeLoad(yamlContent)
+  const result = Yaml.safeLoad(yamlContent) as Yml
   return result
 }
 
@@ -25,8 +25,8 @@ const parseRoutesFromYml = (yamlContent: Yml) => {
       if (http) {
         routes.push({
           path: http.path,
-          funcName,
-          ...func.render
+          ...func.render,
+          funcName
         })
       }
     })
@@ -36,7 +36,6 @@ const parseRoutesFromYml = (yamlContent: Yml) => {
 
 const parseFeRoutes = async (argv: Argv): Promise<FeRouteItem[]> => {
   const { prefix } = getUserConfig()
-
   const pageDir = getPagesDir()
   const feDir = getFeDir()
   // 根据目录结构生成前端路由表
@@ -105,16 +104,16 @@ const parseFeRoutes = async (argv: Argv): Promise<FeRouteItem[]> => {
     })
 
     fs.writeFileSync(`${cwd}/node_modules/ssr-cache/route.js`, `module.exports =${JSON.stringify(arr)
-      .replace(/\"layout\":(\"(.+?)\")/g, (global, m1, m2) => {
+      .replace(/"layout":("(.+?)")/g, (global, m1, m2) => {
         return `"layout": ${m2.replace(/\^/g, '"')}`
       })
-      .replace(/\"fetch\":(\"(.+?)\")/g, (global, m1, m2) => {
+      .replace(/"fetch":("(.+?)")/g, (global, m1, m2) => {
         return `"fetch": ${m2.replace(/\^/g, '"')}`
       })
-      .replace(/\"component\":(\"(.+?)\")/g, (global, m1, m2) => {
+      .replace(/"component":("(.+?)")/g, (global, m1, m2) => {
         return `"component": ${m2.replace(/\^/g, '"')}`
       })
-    }`
+      }`
     )
   } else {
     // todo mpa

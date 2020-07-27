@@ -3,18 +3,23 @@ import * as Koa from 'koa'
 import { logGreen, getCwd } from 'ssr-server-utils'
 import { buildConfig } from '../config'
 
-const proxy = require('koa-proxy')
-const { port, faasPort, cloudIDE } = buildConfig
+const kProxy = require('koa-proxy')
+const { port, faasPort, cloudIDE, proxy } = buildConfig
 
 const app = new Koa()
 
 const startFaasServer = () => {
   const cwd = getCwd()
 
-  app.use(proxy({
+  app.use(kProxy({
     host: `http://127.0.0.1:${port}`, // 本地开发的时候代理前端打包出来的资源地址
     match: /(\/static)|(\/sockjs-node)|hot-update|__webpack_dev_server__/
   }))
+
+  if (proxy) {
+    // custom proxy
+    app.use(kProxy(proxy))
+  }
 
   app.use(useKoaDevPack({
     functionDir: cwd

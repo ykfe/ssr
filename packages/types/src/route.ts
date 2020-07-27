@@ -8,7 +8,7 @@ export interface ProvisionalFeRouteItem {
   component?: string
 }
 
-export interface FeRouteItem<T= {}> {
+export interface FeRouteItem<T = {}> {
   path: string
   layout: React.FC<LayoutProps>
   fetch?: (ctx: IFaaSContext) => Promise<any>

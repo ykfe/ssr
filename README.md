@@ -464,6 +464,11 @@ config.js 支持以下配置, 默认配置已适用于绝大部分应用, 无特
   whiteList: RegExp[]; // 设置服务端构建配置 externals 的白名单，即需要让 webpack 来处理的模块
   cssModulesWhiteList: RegExp[]; // 设置该选项指定样式文件不用 css-modules 处理，防止样式和 className 不匹配
   prefix: string; // 为前端路由添加统一的prefix, 如 /${prefix}/, /${prefix}/detail/:id
+  proxy: {
+    // 可用于本地proxy api接口调试，使用方式查看koa-proxy文档
+    host: string;
+    match: RegExp;
+  }
 }
 
 ```
