@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "cli for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -34,9 +34,9 @@
     "@midwayjs/fcli-plugin-fc": "^1.2.12",
     "@midwayjs/fcli-plugin-scf": "^1.2.12",
     "ora": "^4.0.4",
-    "ssr-server-utils": "^0.3.3",
-    "ssr-types": "^0.3.2",
-    "ssr-webpack": "^0.3.3",
+    "ssr-server-utils": "^0.3.4",
+    "ssr-types": "^0.3.4",
+    "ssr-webpack": "^0.3.4",
     "yargs": "^13.2.4"
   },
   "devDependencies": {
