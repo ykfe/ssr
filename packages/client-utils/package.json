@@ -1,6 +1,6 @@
 {
   "name": "ssr-client-utils",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "utils for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -31,7 +31,7 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0",
-    "ssr-types": "^0.4.2"
+    "ssr-types": "^0.4.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
