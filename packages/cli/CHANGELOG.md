@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.5](https://github.com/ykfe/ssr/compare/v4.3.4...v4.3.5) (2021-01-25)
+
+
+### Bug Fixes
+
+* cli process error ([27acf83](https://github.com/ykfe/ssr/commit/27acf836083730f4757475ec660ee354bd56e93f))
+
+
+
+
+
 ## [4.3.4](https://github.com/ykfe/ssr/compare/v4.3.3...v4.3.4) (2021-01-19)
 
 
