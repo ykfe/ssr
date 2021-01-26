@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.7](https://github.com/ykfe/ssr/compare/v4.3.6...v4.3.7) (2021-01-26)
+
+
+### Bug Fixes
+
+* parse routes ([d58f0e5](https://github.com/ykfe/ssr/commit/d58f0e52d4a0d20f9f0ce34d318bb8ec64b0f303))
+
+
+
+
+
 ## [4.3.6](https://github.com/ykfe/ssr/compare/v4.3.5...v4.3.6) (2021-01-26)
 
 
