@@ -15,10 +15,11 @@ const serverRender = async (ctx: IFaaSContext, options: Options): Promise<React.
   global.window = global.window ?? {} // 防止覆盖上层应用自己定义的 window 对象
   const { window } = global
   const routeItem = findRoute<FeRouteItem<any>>(feRoutes, ctx.req.path)
+  let dynamicCssOrder = cssOrder
   if (dynamic) {
-    cssOrder.push(`${routeItem.webpackChunkName}.css`)
+    dynamicCssOrder = cssOrder.concat([`${routeItem.webpackChunkName}.css`])
   }
-  const staticList = await getStaticList(isDev, port, staticPrefix, cssOrder, jsOrder)
+  const staticList = await getStaticList(isDev, port, staticPrefix, dynamicCssOrder, jsOrder)
 
   if (!routeItem) {
     throw new Error(`With request url ${ctx.req.path} Component is Not Found`)
