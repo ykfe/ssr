@@ -44,7 +44,7 @@ const parseFeRoutes = async (argv: Argv) => {
   // 根据目录结构生成前端路由表
   const cwd = getCwd()
   if (!fs.existsSync(join(cwd, './node_modules/ssr-temporary-routes'))) {
-    Shell.mkdir(`${cwd}/node_modules/ssr-temporary-routes`)
+    Shell.mkdir(join(cwd, './node_modules/ssr-temporary-routes'))
   }
   const folders = await promisifyFsReadDir(pageDir) // 读取web目录
   const defaultLayout = `${join(feDir, './components/layout/index.tsx')}`
@@ -94,7 +94,7 @@ const parseFeRoutes = async (argv: Argv) => {
       if (prefix) {
         route.path = prefix ? `/${prefix}${route.path}` : route.path
       }
-      if (dynamic !== false) {
+      if (dynamic) {
         route.webpackChunkName = folder
       }
       arr.push(route)
@@ -117,7 +117,7 @@ const parseFeRoutes = async (argv: Argv) => {
         return `"fetch": ${m2.replace(/\^/g, '"')}`
       })
       }`
-  if (dynamic === false) {
+  if (!dynamic) {
     // 如果禁用路由分割则无需引入 react-loadable
     routes = routes.replace(/"component":("(.+?)")/g, (global, m1, m2) => {
       return `"component": require('${m2.replace(/\^/g, '"')}').default`
