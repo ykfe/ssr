@@ -1,6 +1,6 @@
 {
   "name": "ssr-webpack",
-  "version": "4.3.7",
+  "version": "4.3.8",
   "description": "webpack config for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",

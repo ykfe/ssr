@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "4.3.7",
+  "version": "4.3.8",
   "description": "cli for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -37,7 +37,7 @@
     "ora": "^4.0.4",
     "ssr-server-utils": "^4.3.7",
     "ssr-types": "^4.3.4",
-    "ssr-webpack": "^4.3.7",
+    "ssr-webpack": "^4.3.8",
     "yargs": "^13.2.4"
   },
   "devDependencies": {
