@@ -94,7 +94,7 @@ const parseFeRoutes = async (argv: Argv) => {
       if (prefix) {
         route.path = prefix ? `/${prefix}${route.path}` : route.path
       }
-      if (dynamic) {
+      if (dynamic !== false) {
         route.webpackChunkName = folder
       }
       arr.push(route)
@@ -117,7 +117,7 @@ const parseFeRoutes = async (argv: Argv) => {
         return `"fetch": ${m2.replace(/\^/g, '"')}`
       })
       }`
-  if (!dynamic) {
+  if (dynamic === false) {
     // 如果禁用路由分割则无需引入 react-loadable
     routes = routes.replace(/"component":("(.+?)")/g, (global, m1, m2) => {
       return `"component": require('${m2.replace(/\^/g, '"')}').default`
