@@ -1,8 +1,16 @@
-import { FaaSContext } from '@midwayjs/faas'
+import * as Koa from 'koa'
+import * as Express from 'express'
+import { FaaSHTTPContext } from '@midwayjs/faas-typings'
 import { FaasRouteItem } from './route'
 import { Action } from './component'
 
-export type IFaaSContext<T={}> = FaaSContext & T
+interface ExpressContext {
+  req: Express.Request
+  res: Express.Response
+  request: Express.Request
+  response: Express.Response
+}
+export type IFaaSContext<T={}> = (Koa.Context|ExpressContext|FaaSHTTPContext) & T
 
 export interface Options {
   faasRoutes: FaasRouteItem[]

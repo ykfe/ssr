@@ -14,7 +14,11 @@ async function render (ctx: IFaaSContext) {
     // clear cache in development environment
     delete require.cache[serverFile]
   }
-  ctx.type = 'text/html'
+  if (typeof ctx.response.type === 'function') {
+    ctx.response.type('.html')
+  } else {
+    ctx.response.type = 'text/html'
+  }
   return await judgeServerFrameWork(ctx)
 }
 const judgeServerFrameWork = async (ctx: IFaaSContext) => {
