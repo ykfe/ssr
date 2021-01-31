@@ -122,6 +122,27 @@ $ npm run build --func=index # 对指定函数进行构建(支持中)
 $ npm run deploy # 支持发布多个平台默认发布到阿里云 等价于 ssr deploy
 ```
 
+前排提示：若遇到发布超时需要手动修改资源上传的超时时间限制，默认为10s
+
+```bash
+$ cat ~/.fcli/config.yaml # 打开阿里云上传配置文件
+```
+```yml
+endpoint: 'xxx'
+api_version: xxx
+access_key_id: xxx
+access_key_secret: xxx
+security_token: ''
+debug: false
+timeout: 100
+retries: 10
+sls_endpoint: xxx
+report: true
+enable_custom_endpoint: false
+```
+
+修改 timeout 字段，单位为秒
+
 首次发布需要输入阿里云账户信息，并且在阿里云控制台开通函数计算服务。账户信息在函数计算[控制台](https://fc.console.aliyun.com/fc)查看。
 
 ![](https://img.alicdn.com/tfs/TB1fZzQB.z1gK0jSZLeXXb9kVXa-1446-1262.jpg)
