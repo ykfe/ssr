@@ -1,6 +1,7 @@
 import { Configuration, Options } from 'webpack'
-import * as Config from 'webpack-chain'
+// import * as Config from 'webpack-chain'
 
+import { Config } from './third-party/webpack-chain'
 export interface Proxy {
   host: string
   match: RegExp
@@ -38,6 +39,7 @@ export interface BuildConfig {
   dynamic?: boolean
   framework?: string
   mode: string
+  serverFramework: string
 }
 
 export interface StyleOptions {

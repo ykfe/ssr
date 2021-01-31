@@ -29,12 +29,15 @@
   "dependencies": {
     "@midwayjs/faas": "^1.0.0",
     "@types/js-yaml": "^3.12.3",
+    "@types/koa": "^2.11.3",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
+    "@types/tapable": "^1.0.6",
     "@types/webpack": "^4.41.10",
-    "@types/yargs": "^13.0.4",
-    "concurrently": "^5.1.0",
-    "webpack-chain": "^6.4.0"
+    "@types/yargs": "^13.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   }
 }

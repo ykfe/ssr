@@ -4,3 +4,4 @@ packages/server-utils/src/external-utils.ts
 **/esm
 **/dist
 **/build
+**/webpack-chain.ts
