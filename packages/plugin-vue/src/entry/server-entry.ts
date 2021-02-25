@@ -5,11 +5,9 @@ import { FeRouteItem, ISSRContext, IConfig } from 'ssr-types'
 import { sync } from 'vuex-router-sync'
 import { createRouter } from './router'
 
-// @ts-expect-error
 Vue.use(Vuex)
 
 const serialize = require('serialize-javascript')
-// @ts-expect-error
 const store = require(vuexStoreFilePath) // define by webpack define plugin
 
 function createStore () {
@@ -52,7 +50,6 @@ const serverRender = async (ctx: ISSRContext, config: IConfig): Promise<Vue.Comp
       // csr 下不需要服务端获取数据
       await fetch({ store, router: router.currentRoute }, ctx)
     }
-    // @ts-expect-error
     const app = new Vue({
       router,
       store,

@@ -6,10 +6,8 @@
   "module": "./esm/index.js",
   "sideEffects": false,
   "scripts": {
-    "build": "concurrently \"tsc -p ./tsconfig.cjs.json --inlineSourceMap false\" \" tsc -p ./tsconfig.esm.json --inlineSourceMap false\"",
-    "build:only": "concurrently \"tsc-transpile-only --skipLibCheck -p ./tsconfig.cjs.json --inlineSourceMap false\" \" tsc-transpile-only --skipLibCheck -p ./tsconfig.esm.json --inlineSourceMap false\"",
-    "watch": "concurrently \"tsc -w -p ./tsconfig.cjs.json \" \"tsc -w -p ./tsconfig.esm.json \"",
-    "watch:cjs": "tsc -w -p ./tsconfig.cjs.json"
+    "watch": "concurrently \" tsc -w -p ./tsconfig.cjs.json --emitDeclarationOnly \"  \" tsc -w -p ./tsconfig.esm.json --emitDeclarationOnly \" ",
+    "build:types": "concurrently \" tsc-transpile-only -p ./tsconfig.cjs.json --emitDeclarationOnly \" \" tsc-transpile-only -p ./tsconfig.esm.json --emitDeclarationOnly \""
   },
   "repository": {
     "type": "git",

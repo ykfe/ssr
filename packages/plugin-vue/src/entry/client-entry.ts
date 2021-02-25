@@ -5,7 +5,6 @@ import { FeRouteItem } from 'ssr-types'
 import { createRouter } from './router'
 
 Vue.use(Vuex)
-// @ts-expect-error
 const store = require(vuexStoreFilePath) // define by webpack define plugin
 
 function createStore () {

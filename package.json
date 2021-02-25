@@ -4,10 +4,10 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "yarn && yarn run build:only && yarn run link",
+    "bootstrap": "yarn && yarn run build && yarn run link",
     "clean": "node scripts/scripts.js --clean",
     "dev": "concurrently \" node scripts/esbuild.js --watch \"  \" lerna run watch --stream --parallel \"",
-    "build": "concurrently \" node scripts/esbuild.js --watch \" \" lerna run build:types --stream --parallel \"",
+    "build": "node scripts/esbuild.js && lerna run build:types --stream --parallel ",
     "lint": "eslint . --ext .js,.ts --cache",
     "lint:fix": "eslint . --ext .js,.ts --cache --fix",
     "test:unit-watch": "jest --coverage --verbose --watch",

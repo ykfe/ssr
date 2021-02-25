@@ -6,8 +6,8 @@
   "module": "./esm/index.js",
   "sideEffects": false,
   "scripts": {
-    "watch": "tsc -w -p ./tsconfig.cjs.json --noEmit",
-    "build:types": "concurrently \" tsc -p ./tsconfig.cjs.json --emitDeclarationOnly \" \" tsc -p ./tsconfig.esm.json --emitDeclarationOnly \""
+    "watch": "concurrently \" tsc -w -p ./tsconfig.cjs.json --emitDeclarationOnly \"  \" tsc -w -p ./tsconfig.esm.json --emitDeclarationOnly \" ",
+    "build:types": "concurrently \" tsc-transpile-only -p ./tsconfig.cjs.json --emitDeclarationOnly \" \" tsc-transpile-only -p ./tsconfig.esm.json --emitDeclarationOnly \""
   },
   "repository": {
     "type": "git",
