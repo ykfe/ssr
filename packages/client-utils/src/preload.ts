@@ -1,6 +1,5 @@
+import pathToRegexp from 'path-to-regexp'
 import { FeRouteItem } from 'ssr-types'
-
-const pathToRegexp = require('path-to-regexp')
 
 const preloadComponent = async (Routes: FeRouteItem[]) => {
   // 预加载当前页面对应的组件
@@ -9,6 +8,7 @@ const preloadComponent = async (Routes: FeRouteItem[]) => {
     const { component, path } = route
 
     let activeComponent = component
+    console.log(pathToRegexp(path).test(pathName))
     if (activeComponent.preload && pathToRegexp(path).test(pathName)) {
       // 针对 react-loadble 包裹的组件
       // @ts-expect-error

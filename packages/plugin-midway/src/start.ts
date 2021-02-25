@@ -6,7 +6,7 @@ const { cliFun } = require('@midwayjs/cli/bin/cli')
 
 const start = (argv: Argv) => {
   const config = loadConfig()
-  exec('cross-env ets', async (err, stdout) => {
+  exec('cross-env npx ets', async (err, stdout) => {
     if (err) {
       console.log(err)
       return

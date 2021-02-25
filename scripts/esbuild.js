@@ -1,7 +1,6 @@
 const fs = require('fs')
 const { join } = require('path')
 const esbuild = require('esbuild')
-const { nodeExternalsPlugin } = require('esbuild-node-externals')
 
 const cwd = process.cwd()
 const fileArr = []
@@ -11,7 +10,7 @@ const readPackages = (dir, prefix) => {
       if (fs.statSync(join(prefix, item)).isDirectory()) {
         readPackages(fs.readdirSync(join(prefix, item)), join(prefix, item))
       } else {
-        if (prefix.match('src') && (item.endsWith('.ts') || item.endsWith('.d.ts'))) {
+        if (prefix.match('src')) {
           fileArr.push(join(prefix, item))
         }
       }
@@ -30,26 +29,13 @@ fs.readdirSync('./packages').forEach(item => {
     packagePath.push(join(cwd, `./packages/${item}/package.json`))
   }
 })
-const defineNodeExternals = {
-  name: 'define-node-externals',
-  setup (build) {
-    // On every module resolved, we check if the module name should be an external
-    build.onResolve({ namespace: 'file', filter: /.*/ }, (args) => {
-      let moduleName = args.path.split('/')[0]
-      // In case of scoped package
-      if (args.path.startsWith('@')) {
-        const split = args.path.split('/')
-        moduleName = `${split[0]}/${split[1]}`
-      }
-      // Mark the module as external so it is not resolved
-      if (/ssr-temporary-routes/.test(moduleName)) {
-        return { path: args.path, external: true }
-      }
 
-      return null
-    })
+const watch = process.argv.includes('--watch') ? {
+  onRebuild (error, result) {
+    if (error) console.error('watch build failed:', error)
+    else console.error('watch build succeeded:', result)
   }
-}
+} : false
 
 fileArr.forEach(file => {
   const prefix = file.split('src')[0]
@@ -61,6 +47,8 @@ fileArr.forEach(file => {
     outFileName = fileName.replace('.tsx', '.js')
   } else if (fileName.endsWith('.d.ts')) {
     outFileName = fileName.replace('.d.ts', '.js')
+  } else {
+    throw new Error(`${fileName} extension is undefined`)
   }
 
   const esmOutFile = join(prefix, `./esm/${outFileName}`)
@@ -73,9 +61,7 @@ fileArr.forEach(file => {
     outfile: esmOutFile,
     format: 'esm',
     target: 'es2018',
-    plugins: [nodeExternalsPlugin({
-      packagePath
-    }), defineNodeExternals]
+    watch
   })
   esbuild.build({
     entryPoints: [file],
@@ -84,8 +70,6 @@ fileArr.forEach(file => {
     outfile: cjsOutFile,
     format: 'cjs',
     target: 'es2018',
-    plugins: [nodeExternalsPlugin({
-      packagePath
-    }), defineNodeExternals]
+    watch
   })
 })
