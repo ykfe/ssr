@@ -53,14 +53,24 @@ const defineNodeExternals = {
 
 fileArr.forEach(file => {
   const prefix = file.split('src')[0]
-  const esmOutFile = join(prefix, './esm/')
-  const cjsOutFile = join(prefix, './cjs/')
+  const fileName = file.split('src')[1]
+  let outFileName = fileName
+  if (fileName.endsWith('.ts')) {
+    outFileName = fileName.replace('.ts', '.js')
+  } else if (fileName.endsWith('.tsx')) {
+    outFileName = fileName.replace('.tsx', '.js')
+  } else if (fileName.endsWith('.d.ts')) {
+    outFileName = fileName.replace('.d.ts', '.js')
+  }
+
+  const esmOutFile = join(prefix, `./esm/${outFileName}`)
+  const cjsOutFile = join(prefix, `./cjs/${outFileName}`)
   const platform = browserRe.test(file) ? 'browser' : 'node'
   esbuild.build({
     entryPoints: [file],
-    bundle: true,
+    bundle: false,
     platform,
-    outdir: esmOutFile,
+    outfile: esmOutFile,
     format: 'esm',
     target: 'es2018',
     plugins: [nodeExternalsPlugin({
@@ -69,9 +79,9 @@ fileArr.forEach(file => {
   })
   esbuild.build({
     entryPoints: [file],
-    bundle: true,
+    bundle: false,
     platform,
-    outdir: cjsOutFile,
+    outfile: cjsOutFile,
     format: 'cjs',
     target: 'es2018',
     plugins: [nodeExternalsPlugin({
