@@ -1,4 +1,4 @@
-import * as React from 'react'
+import  React from 'react'
 import { useReducer } from 'react'
 import { IProps, Action, IWindow } from 'ssr-types'
 import { clientContext as Context } from './create-context'

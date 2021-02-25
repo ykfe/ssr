@@ -30,33 +30,52 @@ fs.readdirSync('./packages').forEach(item => {
     packagePath.push(join(cwd, `./packages/${item}/package.json`))
   }
 })
+const defineNodeExternals = {
+  name: 'define-node-externals',
+  setup (build) {
+    // On every module resolved, we check if the module name should be an external
+    build.onResolve({ namespace: 'file', filter: /.*/ }, (args) => {
+      let moduleName = args.path.split('/')[0]
+      // In case of scoped package
+      if (args.path.startsWith('@')) {
+        const split = args.path.split('/')
+        moduleName = `${split[0]}/${split[1]}`
+      }
+      // Mark the module as external so it is not resolved
+      if (/ssr-temporary-routes/.test(moduleName)) {
+        return { path: args.path, external: true }
+      }
 
+      return null
+    })
+  }
+}
 
 fileArr.forEach(file => {
   const prefix = file.split('src')[0]
-  const fileName = file.split('/')[file.split('/').length-1]
-  const esmOutFile = join(prefix, `./esm-esbuild/${fileName}`)
-  const cjsOutFile = join(prefix, `./cjs-esbuild/${fileName}`)
+  const esmOutFile = join(prefix, './esm/')
+  const cjsOutFile = join(prefix, './cjs/')
+  const platform = browserRe.test(file) ? 'browser' : 'node'
   esbuild.build({
     entryPoints: [file],
     bundle: true,
-    platform: browserRe.test(file) ? 'browser' : 'node',
-    outfile: esmOutFile,
+    platform,
+    outdir: esmOutFile,
     format: 'esm',
     target: 'es2018',
     plugins: [nodeExternalsPlugin({
       packagePath
-    })]
+    }), defineNodeExternals]
   })
   esbuild.build({
     entryPoints: [file],
     bundle: true,
-    platform: browserRe.test(file) ? 'browser' : 'node',
-    outfile: cjsOutFile,
+    platform,
+    outdir: cjsOutFile,
     format: 'cjs',
     target: 'es2018',
     plugins: [nodeExternalsPlugin({
       packagePath
-    })]
+    }), defineNodeExternals]
   })
 })

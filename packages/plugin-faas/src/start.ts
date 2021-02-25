@@ -1,6 +1,6 @@
 import { useKoaDevPack } from '@midwayjs/faas-dev-pack'
 import { logGreen, getCwd, loadConfig, initialSSRDevProxy } from 'ssr-server-utils'
-import * as Koa from 'koa'
+import  Koa from 'koa'
 
 const start = () => {
   const cwd = getCwd()

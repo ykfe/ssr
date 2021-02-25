@@ -1,4 +1,4 @@
-import * as fs from 'fs'
+import fs from 'fs'
 import { join, isAbsolute } from 'path'
 import { IConfig } from 'ssr-types'
 

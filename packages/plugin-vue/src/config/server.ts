@@ -1,7 +1,7 @@
 import { join } from 'path'
-import * as webpack from 'webpack'
+import webpack from 'webpack'
 import { loadConfig, getLocalNodeModules, getVuexStoreFilePath } from 'ssr-server-utils'
-import * as WebpackChain from 'webpack-chain'
+import WebpackChain from 'webpack-chain'
 import { getBaseConfig } from './base'
 import { nodeExternals } from '../utils/externals'
 

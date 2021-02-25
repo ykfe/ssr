@@ -1,5 +1,5 @@
 import { promisify } from 'util'
-import * as webpack from 'webpack'
+import webpack from 'webpack'
 
 const webpackPromisify = promisify<webpack.Configuration, webpack.Stats>(webpack)
 

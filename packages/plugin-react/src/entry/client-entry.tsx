@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { FeRouteItem, preloadComponent } from 'ssr-client-utils'
 import { wrapComponent } from 'ssr-hoc-react'

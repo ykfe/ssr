@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { fork } from 'child_process'
 import { resolve } from 'path'
-import * as yargs from 'yargs'
+import yargs from 'yargs'
 import { parseFeRoutes, loadPlugin } from 'ssr-server-utils'
 import { Argv } from 'ssr-types'
 

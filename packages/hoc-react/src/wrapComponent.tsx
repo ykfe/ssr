@@ -1,4 +1,4 @@
-import * as React from 'react'
+import  React from 'react'
 import { useContext, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { FC } from 'ssr-types'

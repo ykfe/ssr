@@ -1,5 +1,5 @@
-import * as Koa from 'koa'
-import * as Express from 'express'
+import Koa from 'koa'
+import Express from 'express'
 import { FaaSHTTPContext } from '@midwayjs/faas-typings'
 import { Action } from './component'
 

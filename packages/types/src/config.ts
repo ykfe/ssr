@@ -1,5 +1,5 @@
 import { Configuration, Options } from 'webpack'
-import * as httpProxyMiddleware from 'http-proxy-middleware'
+import httpProxyMiddleware from 'http-proxy-middleware'
 import { Config } from './third-party/webpack-chain'
 export interface IConfig {
   cwd: string

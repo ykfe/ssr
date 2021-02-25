@@ -1,7 +1,7 @@
 
-import * as webpack from 'webpack'
+import webpack from 'webpack'
 import { loadConfig, getVuexStoreFilePath } from 'ssr-server-utils'
-import * as WebpackChain from 'webpack-chain'
+import WebpackChain from 'webpack-chain'
 import { getBaseConfig } from './base'
 
 const safePostCssParser = require('postcss-safe-parser')

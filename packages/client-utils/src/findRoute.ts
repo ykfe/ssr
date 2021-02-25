@@ -1,5 +1,5 @@
 // @ts-nocheck
-import * as pathToRegexp from 'path-to-regexp'
+import pathToRegexp from 'path-to-regexp'
 
 const debug = require('debug')('ssr:render')
 const cache = {}

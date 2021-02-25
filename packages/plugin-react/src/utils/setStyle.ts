@@ -1,5 +1,5 @@
 
-import * as WebpackChain from 'webpack-chain'
+import  WebpackChain from 'webpack-chain'
 import { StyleOptions } from 'ssr-server-utils'
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')

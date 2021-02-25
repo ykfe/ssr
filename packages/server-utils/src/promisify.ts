@@ -1,5 +1,5 @@
-import * as fs from 'fs'
-import * as http from 'http'
+import fs from 'fs'
+import http from 'http'
 import { promisify } from 'util'
 
 const promisifyFsReadDir = promisify(fs.readdir)

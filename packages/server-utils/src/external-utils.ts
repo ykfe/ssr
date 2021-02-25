@@ -1,7 +1,7 @@
 // @ts-nocheck
 
-import * as fs from 'fs'
-import * as path from 'path'
+import  fs from 'fs'
+import  path from 'path'
 
 const contains = function contains (arr, val) {
   return arr && arr.indexOf(val) !== -1

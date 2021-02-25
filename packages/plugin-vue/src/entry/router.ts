@@ -1,6 +1,6 @@
 // @ts-nocheck
-import * as Vue from 'vue'
-import * as Router from 'vue-router'
+import Vue from 'vue'
+import Router from 'vue-router'
 
 const realVue: Vue = Vue.default || Vue
 const RealRouter: Router = Router.default || Router

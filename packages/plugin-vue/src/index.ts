@@ -1,4 +1,4 @@
-import * as WebpackChain from 'webpack-chain'
+import WebpackChain from 'webpack-chain'
 import { startClientServer, startServerBuild, startClientBuild } from 'ssr-webpack'
 import { getClientWebpack, getServerWebpack } from './config'
 

@@ -1,6 +1,6 @@
 import { Tapable } from 'tapable'
-import * as webpack from 'webpack'
-import * as https from 'https'
+import  webpack from 'webpack'
+import  https from 'https'
 
 declare namespace __Config {
   class Chained<Parent> {

@@ -3,6 +3,8 @@
 **/third-party
 **/cjs
 **/esm
+**/cjs-esbuild
+**/esm-esbuild
 **/dist
 **/build
 **/typings
