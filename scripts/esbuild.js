@@ -3,6 +3,7 @@ const { join } = require('path')
 const esbuild = require('esbuild')
 const { nodeExternalsPlugin } = require('esbuild-node-externals')
 
+const cwd = process.cwd()
 const fileArr = []
 const readPackages = (dir, prefix) => {
   dir.forEach(item => {
@@ -22,6 +23,15 @@ readPackages(fs.readdirSync('./packages'), join(process.cwd(), './packages'))
 
 const browserRe = /client-utils/
 
+const packagePath = [join(cwd, './package.json')]
+
+fs.readdirSync('./packages').forEach(item => {
+  if (item !== '.DS_Store') {
+    packagePath.push(join(cwd, `./packages/${item}/package.json`))
+  }
+})
+
+
 fileArr.forEach(file => {
   const prefix = file.split('src')[0]
   const fileName = file.split('/')[file.split('/').length-1]
@@ -34,7 +44,9 @@ fileArr.forEach(file => {
     outfile: esmOutFile,
     format: 'esm',
     target: 'es2018',
-    plugins: [nodeExternalsPlugin()]
+    plugins: [nodeExternalsPlugin({
+      packagePath
+    })]
   })
   esbuild.build({
     entryPoints: [file],
@@ -43,6 +55,8 @@ fileArr.forEach(file => {
     outfile: cjsOutFile,
     format: 'cjs',
     target: 'es2018',
-    plugins: [nodeExternalsPlugin()]
+    plugins: [nodeExternalsPlugin({
+      packagePath
+    })]
   })
 })

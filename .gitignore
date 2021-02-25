@@ -66,6 +66,10 @@ esm
 
 cjs
 
+esm-esbuild
+
+cjs-esbuild
+
 tests_output
 
 bin
