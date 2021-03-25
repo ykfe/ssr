@@ -22,7 +22,7 @@
     glob "^7.1.6"
     httpx "^2.2.2"
     iconv-lite "^0.5.1"
-    ignore "^5.1.4"
+    ignore "^5.1.4" 
     js-yaml "^3.13.1"
     lodash "^4.17.14"
     log4js "^4.5.1"

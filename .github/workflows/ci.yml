@@ -33,11 +33,11 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-v2.5.2-
-            ${{ runner.os }}-v2.5.2-
-            ${{ runner.os }}-v2.5.2-
+            ${{ runner.os }}-v2.5.3-
+            ${{ runner.os }}-v2.5.3-
+            ${{ runner.os }}-v2.5.3-
       - name: Install dependencies
         run: | 
           yarn && yarn build:only
@@ -77,7 +77,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - run: yarn run lint
 
   e2e-chrome-midway-react:
@@ -102,7 +102,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -140,7 +140,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -179,7 +179,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -217,7 +217,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -255,7 +255,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -293,7 +293,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -331,7 +331,7 @@ jobs:
             ~/.cache/yarn
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
@@ -375,7 +375,7 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-v2.5.2-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-v2.5.3-${{ hashFiles('**/yarn.lock') }}
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
