@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "5.4.22",
+  "version": "5.4.23",
   "description": "cli for serverless ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -33,8 +33,8 @@
   "homepage": "https://github.com/ykfe/ssr#readme",
   "dependencies": {
     "ora": "^4.0.4",
-    "ssr-server-utils": "^5.4.22",
-    "ssr-types": "^5.4.22",
+    "ssr-server-utils": "^5.4.23",
+    "ssr-types": "^5.4.23",
     "yargs": "^13.2.4"
   },
   "engines": {

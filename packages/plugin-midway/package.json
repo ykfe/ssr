@@ -1,6 +1,6 @@
 {
   "name": "ssr-plugin-midway",
-  "version": "5.4.22",
+  "version": "5.4.23",
   "description": "plugin-midway for ssr",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -41,6 +41,6 @@
     "@midwayjs/web": "^2.3.0",
     "@types/node": "14",
     "mwts": "^1.0.5",
-    "ssr-server-utils": "^5.4.22"
+    "ssr-server-utils": "^5.4.23"
   }
 }
