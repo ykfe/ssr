@@ -1,7 +1,7 @@
-import { createStore as createVuexStore } from 'vuex'
+import { createStore as createVuexStore } from 'vuex' // define by webpack define plugin
 
 // @ts-expect-error
-const store = require(vuexStoreFilePath) // define by webpack define plugin
+import * as store from '@/store/index.ts'
 
 function createStore () {
   return createVuexStore(store)

@@ -618,6 +618,28 @@ export default {
 </script>
 
 ```
+
+#### Vue3 全局注册指令
+
+由于 Vue3 创建 app 实例以及安装插件和注册自定义全局指令的方式与 Vue2 差别较大。为了方便用户开发，我们会将框架底层创建的 VueApp 实例挂在 `window.__VUE_APP__` 上方，在服务端/客户端都能够访问改属性。但由于服务端和客户端环境有差异。我们不建议过度依赖该属性。例如自定义指令会在服务端被忽略。在注册的时候我们需要根据当前环境做判断。
+
+```js
+// 在 layout/App.vue 中做一些全局的任务
+export default {
+  created () {
+    if (__isBrowser__) {
+      const app = window.__VUE_APP__
+      app.directive('focus', {
+        // 当被绑定的元素挂载到 DOM 中时……
+        mounted (el) {
+          // 聚焦元素
+          el.focus()
+        }
+      })
+    }
+  }
+}
+```
 #### 使用Vue3国际化插件
 
 在 plugin-vue3 中，我们已在底层对国际化进行支持。国际化插件使用最新的 Composition API，推荐使用Composition API进行国际化配置，详细见官方文档：https://vue-i18n.intlify.dev/guide/advanced/composition.html
@@ -633,11 +655,32 @@ $ npm i @intlify/vue-i18n-loader@^2.0.3 --save-dev
 
 ```js
 // config.js
-
+// 启用后构建时会使用相应 loader 进行构建
 module.exports = {
   locale: {
-    enable: true,
-    config: {}
+    enable: true
+  }
+}
+```
+
+在 `layout/App.vue` 做配置初始化
+
+```js
+import { createI18n } from 'vue-i18n'
+
+const i18n = createI18n({
+  // 默认配置
+  locale: 'en',
+  messages: {},
+  globalInjection: true,
+  // 模式锁定，传统模式SSR有bug
+  legacy: false
+})
+
+export default {
+  created () {
+    const app = window.__VUE_APP__
+    app.use(i18n)
   }
 }
 ```
@@ -1049,8 +1092,7 @@ module.exports = [{
     }
   },
   locale:{
-    enable:true,// 是否启用vue-i18n国际化插件
-    config:{} // vue-i18n国际化插件初始化配置，详见：https://vue-i18n.intlify.dev/api/general.html
+    enable: false // 是否启用vue-i18n国际化插件
   }
 }
 

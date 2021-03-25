@@ -42,7 +42,6 @@ export interface IConfig {
   }>
   locale?: {
     enable: false
-    config: any
   }
 }
 type Optional <T>= { [key in keyof T]?: T[key] }

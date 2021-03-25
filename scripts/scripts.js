@@ -6,7 +6,7 @@ const options = {
   stdio: 'inherit'
 }
 
-const linkPackage = ['@midwayjs/decorator', '@midwayjs/web']
+const linkPackage = []
 
 linkPackage.push('react')
 linkPackage.push('react-dom')

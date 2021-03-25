@@ -23,12 +23,7 @@ const clientRender = async () => {
 
   app.use(store)
   app.use(router)
-  // @ts-expect-error
-  if (vueI18N?.enable) {
-    const { i18n } = require('./i18n')
-    app.use(i18n)
-  }
-
+  window.__VUE_APP__ = app
   await router.isReady()
 
   if (!window.__USE_SSR__) {

@@ -1,16 +1,8 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import { findRoute } from 'ssr-client-utils'
 import { FeRouteItem } from 'ssr-types'
 import { createRouter } from './router'
-
-Vue.use(Vuex)
-// @ts-expect-error
-const store = require(vuexStoreFilePath) // define by webpack define plugin
-
-function createStore () {
-  return new Vuex.Store(store)
-}
+import { createStore } from './store'
 
 declare const module: any
 const feRoutes = require('ssr-temporary-routes/route')

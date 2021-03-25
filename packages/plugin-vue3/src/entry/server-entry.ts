@@ -2,18 +2,19 @@ import * as Vue from 'vue'
 import { h, createSSRApp } from 'vue'
 import { findRoute, getManifest, logGreen } from 'ssr-server-utils'
 import { FeRouteItem, ISSRContext, IConfig } from 'ssr-types'
+// @ts-expect-error
+import * as serialize from 'serialize-javascript'
 import { createRouter } from './router'
 import { createStore } from './store'
-
-const serialize = require('serialize-javascript')
 
 const feRoutes = require('ssr-temporary-routes/route')
 
 const serverRender = async (ctx: ISSRContext, config: IConfig) => {
+  global.window = global.window ?? {} // 防止覆盖上层应用自己定义的 window 对象
   const router = createRouter()
   const store = createStore()
 
-  const { cssOrder, jsOrder, dynamic, mode, customeHeadScript, locale } = config
+  const { cssOrder, jsOrder, dynamic, mode, customeHeadScript } = config
   const path = ctx.request.path // 这里取 pathname 不能够包含 queyString
 
   const routeItem = findRoute<FeRouteItem<{}, {
@@ -91,12 +92,10 @@ const serverRender = async (ctx: ISSRContext, config: IConfig) => {
       )
     }
   })
-  if (locale?.enable) {
-    const { i18n } = require('./i18n')
-    app.use(i18n)
-  }
+
   app.use(router)
   app.use(store)
+  window.__VUE_APP__ = app
   return app
 }
 

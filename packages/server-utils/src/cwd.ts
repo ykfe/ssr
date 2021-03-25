@@ -32,10 +32,6 @@ const getPagesDir = () => {
   return join(getFeDir(), './pages')
 }
 
-const getVuexStoreFilePath = () => {
-  return join(getFeDir(), './store')
-}
-
 const getUserConfig = (): UserConfig => {
   // 生产环境如果有 config.prod 则读取
   const isProd = process.env.NODE_ENV === 'production'
@@ -69,6 +65,5 @@ export {
   isFaaS,
   loadPlugin,
   getLocalNodeModules,
-  processError,
-  getVuexStoreFilePath
+  processError
 }
