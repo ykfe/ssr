@@ -114,11 +114,6 @@ const renderRoutes = async (pageDir: string, pathRecord: string[], route: ParseF
         route.component = `${aliasPath}/${pageFiles}`
       }
 
-      if (/render\$[\s\S]+\$/.test(pageFiles)) {
-        /* /news:id? */
-        route.path = `${prefixPath}/:${getDynamicParam(pageFiles)}?`
-        route.component = `${aliasPath}/${pageFiles}`
-      }
       if (pageFiles.includes('fetch')) {
         route.fetch = `require('${aliasPath}/${pageFiles}').default`
       }
@@ -147,7 +142,7 @@ const renderRoutes = async (pageDir: string, pathRecord: string[], route: ParseF
 }
 
 const getDynamicParam = (url: string) => {
-  return url.split('$')[1].replace(/\.[\s\S]+/, '')
+  return url.split('$').filter(r => r!=='render').map(r => r.replace(/\.[\s\S]+/, '')).join('/:')
 }
 
 export {
