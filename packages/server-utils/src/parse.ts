@@ -142,7 +142,7 @@ const renderRoutes = async (pageDir: string, pathRecord: string[], route: ParseF
 }
 
 const getDynamicParam = (url: string) => {
-  return url.split('$').filter(r => r!=='render').map(r => r.replace(/\.[\s\S]+/, '')).join('/:')
+  return url.split('$').filter(r => r !== 'render').map(r => r.replace(/\.[\s\S]+/, '')).join('/:')
 }
 
 export {

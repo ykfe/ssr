@@ -25,12 +25,12 @@
     "unlink": "node scripts/scripts.js --unlink",
     "publish": "lerna version --conventional-commits",
     "e2e": "cypress run --browser chrome",
-    "example:midway:vue": "cd example/midway-vue-ssr && npm start",
-    "example:midway:react": "cd example/midway-react-ssr && npm start",
-    "example:midway:vue3": "cd example/midway-vue3-ssr && npm start",
-    "example:nestjs:react": "cd example/nestjs-vue-ssr && npm start",
-    "example:nestjs:vue": "cd example/nestjs-vue-ssr && npm start",
-    "example:nestjs:vue3": "cd example/nestjs-vue3-ssr && npm start"
+    "example:midway:vue": "cd example/midway-vue-ssr && yarn && npm start",
+    "example:midway:react": "cd example/midway-react-ssr && yarn && npm start",
+    "example:midway:vue3": "cd example/midway-vue3-ssr && yarn && npm start",
+    "example:nestjs:react": "cd example/nestjs-vue-ssr && yarn && npm start",
+    "example:nestjs:vue": "cd example/nestjs-vue-ssr && yarn && npm start",
+    "example:nestjs:vue3": "cd example/nestjs-vue3-ssr && yarn && npm start"
   },
   "repository": {
     "type": "git",

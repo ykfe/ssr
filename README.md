@@ -521,19 +521,22 @@ export default {
 │   │   └── layout # 页面 html 布局
 │   │       ├── index.less
 │   │       └── index.tsx
-│   ├── pages # pages目录下的文件夹会映射为前端路由，存放页面级别的组件
+│   ├── pages # pages目录下的文件夹会映射为前端路由，存放页面级别的组件, 目前一个文件夹下只允许存在一个 render 类型的文件
 │   │   ├── index # index文件夹映射为根路由
 │   │   │   ├── fetch.ts # 定义fetch文件用来统一服务端/客户端获取数据的方式，通过 __isBrowser__ 变量区分环境
 │   │   │   ├── index.less
 │   │   │   └── render.tsx # 定义render文件用来定义页面渲染逻辑
 │   │   └── detail
-│   │       ├── fetch.ts
-│   │       ├── index.less
-│   │       └── render$id.tsx # 映射为 /detail/:id
-│   │       └── render$id$.tsx # 映射为 /detail/:id?
-│   │       └── user
-│   │           ├── fetch.ts
-│   │           └── render$id.tsx # 多级路由按照规则映射为 /detail/user/:id
+│   │   │   ├── fetch.ts
+│   │   │   ├── index.less
+│   │   │   └── render$id.tsx # 映射为 /detail/:id
+│   │   │   └── user
+│   │   │        ├── fetch.ts
+│   │   │        └── render$id.tsx # 多级路由按照规则映射为 /detail/user/:id
+│   │   ├── foo 
+│   │   │   ├── fetch.ts
+│   │   │   ├── index.less
+│   │   │   └── render$user$id.tsx # 多参数路由映射为 /foo/:user/:id
 │   ├── tsconfig.json # 仅用于编辑器ts语法检测
 │   └── typings.d.ts
 ```
